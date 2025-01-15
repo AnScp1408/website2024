@@ -27,18 +27,25 @@ page {
         templateRootPath = EXT:website2024/Resources/Private/Templates/Page/
     }
 
+
+    # Hauptnavigation (zeigt die Hauptmenüpunkte der Webseite)
+    # - Verwendet das HMENU-Objekt, um die erste Ebene der Menüstruktur darzustellen.
+    # - Jedes Menüelement wird als Link dargestellt, und ein Trennzeichen wird durch den 'linkWrap' hinzugefügt.
     10 = FLUIDTEMPLATE
     10.variables {
         # Hauptnavigation
         mainnavigation = HMENU
         mainnavigation {
             1 = TMENU
-            1.NO {
-                linkWrap = <span>|</span>
-            }
+#            1.NO {
+#                linkWrap = <span>|</span>
+#                # Trennzeichen zwischen den Hauptmenüeinträgen
+#            }
         }
 
-        # Subnavigation (zeigt nur Unterkapitel der aktuellen Seite an)
+        # Subnavigation (zeigt Unterseiten der aktuellen Seite an)
+        # - Lädt nur Unterseiten der aktuellen Seite basierend auf der Seiten-UID.
+        # - Jedes Untermenüelement wird in einem <li>-Tag mit einer CSS-Klasse für die Darstellung verpackt.
         subnavigation = HMENU
         subnavigation {
             special = directory
@@ -62,8 +69,6 @@ plugin.bootstrap_package {
         templateRootPath = EXT:website2024/Resources/Private/Templates/
     }
 }
-
-#plugin.website2024.settings.accordionCssPath = EXT:website2024/Resources/Public/Scss/Theme/accordion/_accordion.scss
 
 ########################
 ### CONTENT ELEMENTS ###
