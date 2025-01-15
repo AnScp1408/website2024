@@ -1,0 +1,28 @@
+<f:layout name="Default"/>
+<f:section name="Main">
+    <!-- Slider main container -->
+    <f:if condition="{data.tx_mask_slideshow}">
+        <div class="swiper">
+            <!-- Wrapper für die Slides -->
+            <div class="swiper-wrapper">
+                <f:for each="{data.tx_mask_slideshow}" as="data_item">
+                    <div class="swiper-slide">
+                        <!-- Iteriere durch die Bilder in jedem Slide -->
+                        <f:for each="{data_item.tx_mask_image}" as="file">
+                            <!-- Bild einfügen -->
+                            <f:media file="{file}" width="300"/>
+                            {file.description}
+                        </f:for>
+                    </div>
+                </f:for>
+            </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Navigation -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </f:if>
+</f:section>
+
+

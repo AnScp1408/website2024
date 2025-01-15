@@ -1,0 +1,46 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Detail"/>
+<f:section name="content">
+	<h1>Hallo</h1>
+	<div class="card mb-3">
+		<!-- Optionales Bild -->
+		<f:if condition="{newsItem.mediaNonPreviews}">
+			<f:then>
+				<f:for each="{newsItem.mediaNonPreviews}" as="mediaElement" iteration="iterator">
+					<!-- Nur das erste Bild anzeigen -->
+					<f:if condition="{iterator.index} == 0">
+						<f:then>
+							<img src="{mediaElement.publicUrl}" class="card-img-top img-fluid"
+								 alt="{mediaElement.alternative}">
+						</f:then>
+					</f:if>
+				</f:for>
+			</f:then>
+		</f:if>
+		<!-- Card Body -->
+		<div class="card-body">
+			<!-- Titel -->
+			<h5 class="card-title">{newsItem.title}</h5>
+			<!-- Teaser -->
+			<f:if condition="{newsItem.teaser}">
+				<p class="card-text">
+					<f:format.html>{newsItem.teaser}</f:format.html>
+				</p>
+			</f:if>
+			<!-- Haupttext -->
+			<f:if condition="{newsItem.bodytext}">
+				<p class="card-text">
+					<f:format.html>{newsItem.bodytext}</f:format.html>
+				</p>
+			</f:if>
+			<!-- Link zurück -->
+			<f:if condition="{settings.backPid}">
+				<a href="{f:uri.page(pageUid: settings.backPid)}" class="btn btn-primary">
+					<f:translate key="back-link"/>
+				</a>
+			</f:if>
+		</div>
+	</div>
+</f:section>
+</html>

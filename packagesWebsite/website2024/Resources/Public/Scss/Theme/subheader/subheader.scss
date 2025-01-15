@@ -1,0 +1,33 @@
+/* Subnavigation Styles */
+#sub-page-header.navbar-subnavigation {
+  background-color: #ccd5ae;
+  padding: 8px;
+}
+
+.navbar-subnavigation .nav-link {
+  color: rgba(0, 0, 0, 0.48);
+  margin-right: 15px; /* Abstand zwischen den Links */
+}
+
+.nav-link-sub.active{
+  color: black;
+  background-color: #ffffff; /* Weißer Hintergrund für den aktiven Link */
+}
+
+.navbar-subnavigation .nav-link:hover {
+  color: black;
+  background-color: #ffffff; /* Weißer Hintergrund für den hover Link */
+  //border-radius: 15px; /* Abgerundete Ecken */
+  //padding: 10px 15px; /* Etwas mehr Innenabstand für den hover Link */
+}
+
+.navbar-subnavigation .collapse:not(.show) {
+  display: flex !important;
+}
+
+
+//Hauptnav link stylen active
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
+  font-weight: bolder;
+}

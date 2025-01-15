@@ -1,0 +1,69 @@
+######################
+#### DEPENDENCIES ####
+######################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/setup.typoscript">
+
+
+##############
+#### PAGE ####
+##############
+page {
+    includeCSS {
+        swiper = https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css
+        icons = https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css
+        theme = EXT:website2024/Resources/Public/Scss/Theme/theme.scss
+    }
+
+    includeJSLibs {
+        jQuery = https://code.jquery.com/jquery-3.6.0.min.js
+    }
+
+    includeJS {
+
+    }
+
+    includeJSFooterlibs {
+
+    }
+
+    includeJSFooter {
+        swiper = https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js
+        kwm24_scripts = EXT:website2024/Resources/Public/JavaScript/Dist/scripts.js
+    }
+}
+
+page.includeJSFooter.myScripts = EXT:website2024/Resources/Public/JavaScript/Dist/scripts.js
+
+lib.maskContentElement {
+    templateRootPaths {
+        5 = EXT:bootstrap_package/Resources/Private/Templates/ContentElements
+    }
+
+    partialRootPaths {
+        5 = EXT:bootstrap_package/Resources/Private/Partials/ContentElements
+    }
+
+    layoutRootPaths {
+        5 = EXT:bootstrap_package/Resources/Private/Layouts/ContentElements
+    }
+}
+
+##FE Manager
+plugin.tx_femanager {
+    settings {
+        storagePid = 24
+        new {
+            usergroup = 4
+        }
+    }
+}
+
+plugin.tx_form {
+    settings {
+        yamlConfigurations {
+            # eigenes Yaml zum Form überschreiben
+            120 = EXT:website2024/Configuration/Form/CustomFormSetup.yaml
+        }
+    }
+}
+

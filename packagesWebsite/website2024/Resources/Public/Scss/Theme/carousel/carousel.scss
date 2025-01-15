@@ -1,0 +1,54 @@
+.carousel-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 500px; // Optional, um eine konsistente Höhe zu gewährleisten
+  --carousel-item-background: #fefae0; // Variable aus deiner SCSS-Datei
+  --carousel-item-color: #000000;
+  margin-bottom: 25px;
+
+  .carousel-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 60px;
+
+    .carousel-image {
+      margin-bottom: 20px; // Abstand nach unten
+      img {
+        max-width: 100%; // Bild wird nicht größer als sein Container
+        height: auto; // Seitenverhältnis bleibt erhalten
+      }
+    }
+
+    .carousel-header {
+      font-size: 1.5rem;
+      color: #0f0a10;
+      font-weight: bold;
+      margin-bottom: 10px; // Optionaler Abstand zwischen Header und Text
+    }
+
+    .carousel-text {
+      font-size: 1rem;
+      color: #666;
+      padding: 0 15px;
+    }
+  }
+}
+
+
+.carousel-indicators [data-bs-target] {
+  background-color: #666666;
+}
+
+carousel-control carousel-control-next{
+  background-color: #666666
+}
+
+button.carousel-control-prev{
+  color: black;
+}
+

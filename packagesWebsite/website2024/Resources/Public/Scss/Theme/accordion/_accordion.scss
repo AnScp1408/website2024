@@ -1,0 +1,61 @@
+// Dynamische Farben für zugeklappte und aufgeklappte Accordion-Buttons
+.accordion-button {
+  background-color: #e9ecef; // Standardfarbe für zugeklappte Buttons
+  color: #495057;  // Standard-Textfarbe für zugeklappte Buttons
+
+  // Dynamische Farben für die Accordion-Buttons basierend auf der jeweiligen Klasse Überschriften
+  &.bg-blue {
+    background-color: #bde0fe;
+    color: #000;  // Textfarbe für blaues Accordion
+  }
+
+  &.bg-yellow {
+    background-color: #fefae0;
+    color: #000;  // Textfarbe für gelbes Accordion
+  }
+
+  &.bg-green {
+    background-color: #ccd5ae;
+    color: #000;  // Textfarbe für grünes Accordion
+  }
+
+  &.bg-purple {
+    background-color: #cdb4db;
+    color: #000;  // Textfarbe für lila Accordion
+  }
+}
+
+// Accordion Body bekommt die Hintergrundfarbe des entsprechenden Items
+.accordion-body {
+  padding: 1rem;
+  background-color: transparent;  // Sicherstellen, dass der Body transparent bleibt
+}
+
+// Wenn der Accordion-Item geöffnet wird, bleibt die Hintergrundfarbe des Buttons bestehen
+.accordion-button:not(.collapsed) {
+  background-color: inherit;  // Vererbt die Hintergrundfarbe des Items
+  color: inherit;  // Vererbt die Textfarbe des Items
+}
+
+// Hintergrund für Accordion-Bodies
+.accordion-item {
+  &.bg-blue .accordion-body {
+    background-color: #bde0fe;
+    color: #000;
+  }
+
+  &.bg-yellow .accordion-body {
+    background-color: #fefae0;
+    color: #000;
+  }
+
+  &.bg-green .accordion-body {
+    background-color: #ccd5ae;
+    color: #000;
+  }
+
+  &.bg-purple .accordion-body {
+    background-color: #cdb4db;
+    color: #000;
+  }
+}

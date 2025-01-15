@@ -1,0 +1,23 @@
+<f:if condition="{subNavigation}">
+    <header id="{subHeaderId}" class="{subHeaderClass}">
+        <div class="container {containerClass}">
+            <nav id="{subNavigationId}" class="navbar navbar-subnavigation">
+                <ul class="nav">
+                    <f:for each="{subNavigation}" as="item">
+                        <li class="nav-item">
+                            <a id="nav-item-{item.data.uid}" href="{item.link}" class="nav-link nav-link-sub{f:if(condition: item.active, then:' active')}">
+<!--Grundsätzlich SubHeader wie MainNavigation-->
+                                <span class="nav-link-text">
+                                {item.title}
+                                <f:if condition="{item.current}">
+                                    <span class="visually-hidden">({f:translate(key: 'navigation.link.screenreader.current', extensionName: 'bootstrap_package')})</span>
+                                </f:if>
+                            </span>
+                            </a>
+                        </li>
+                    </f:for>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</f:if>

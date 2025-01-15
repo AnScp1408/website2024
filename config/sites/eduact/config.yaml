@@ -1,0 +1,26 @@
+base: 'http://website.s2310456018.student.kwmhgb.at/'
+languages:
+  -
+    title: Deutsch
+    enabled: true
+    languageId: 0
+    base: /
+    locale: de_DE
+    navigationTitle: DE
+    flag: at
+    hreflang: de_DE
+    websiteTitle: EduAct
+  -
+    title: English
+    enabled: true
+    locale: en_US
+    hreflang: en_US
+    base: /en
+    websiteTitle: EduAct
+    navigationTitle: EN
+    fallbackType: strict
+    fallbacks: ''
+    flag: en-us-gb
+    languageId: 3
+rootPageId: 3
+websiteTitle: EduAct

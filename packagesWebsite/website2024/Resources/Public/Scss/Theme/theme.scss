@@ -1,0 +1,204 @@
+//
+// Variables
+//
+@import "variables";
+
+//
+// Import needed Bootstrap Package Files
+//
+@import "EXT:bootstrap_package/Resources/Public/Scss/bootstrap5/theme";
+
+/////////////////////////////////////////////////////
+// Schrift importieren
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+// Setze Montserrat als Standard-Schriftart, und falls diese nicht verfügbar ist, wird die default system font verwendet
+body {
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+}
+
+/////////////////////////////////////////////////////
+// allgemeingültige Designs ändern
+///////////////////////////////////////////////////////
+
+main {
+  flex-grow: 1;
+}
+
+#page-header{
+  background-color: #FFC8DD !important;
+}
+
+.frame-background-secondary {
+  --frame-background: #ccd5ae;
+}
+
+.btn{
+  --bs-btn-border-radius: 0;
+  color: var(--bs-btn-color);
+
+}
+
+.btn-primary {
+  --bs-btn-color: #013859;
+  --bs-btn-border-color: #013859;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: #013859;
+  --bs-btn-hover-border-color: #013859;
+  --bs-btn-focus-shadow-rgb: 1, 56, 89;
+  --bs-btn-active-color: #ffffff;
+  --bs-btn-active-bg: #013859;
+  --bs-btn-active-border-color: #013859;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #013859;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #013859;
+  --bs-gradient: none;
+}
+
+.navbar-mainnavigation {
+  --mainnavigation-hightlight: transparent;
+}
+
+.frame a[class=""], .frame a:not([class]){
+  color: black;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+/////////////////////////////////////////////////////
+// Card Elemente ändern
+/////////////////////////////////////////////////////
+.card {
+  --bs-card-border-radius: 0;
+  --bs-card-border-color: transparent;
+}
+
+h2.card-title {
+  text-align: center;
+}
+.card-body .btn{
+  justify-content: flex-end;
+}
+
+.card .card-img-top + p {
+  margin-top: 10px; /* Nur für das erste p nach einem Bild */
+}
+
+/////////////////////////////////////////////////////
+//Kontaktformular verändern
+/////////////////////////////////////////////////////
+.form-select{
+  border-radius: 0;
+}
+.form-control{
+  border-radius: 0;
+}
+
+.form-check-input:checked {
+  background-color: #cdb4db;
+  border-color: #ffffff;
+}
+
+.form-navigation .contact-section{
+  display: flex;
+  justify-content: space-between !important;
+}
+
+/////////////////////////////////////////////////////
+//News List styling
+/////////////////////////////////////////////////////
+.list-group{
+  --bs-body-bg: #fefae0;
+  --bs-list-group-border-radius: 0;
+  --bs-list-group-border-color: #00000000;
+}
+
+.list-group-item {
+  margin-bottom: 10px;
+}
+
+/////////////////////////////////////////////////////
+//swiper allg
+/////////////////////////////////////////////////////
+.swiper-button-next, .swiper-button-prev {
+  --swiper-navigation-color: #ccd5ae;
+}
+
+.swiper-pagination-bullet-active{
+  --swiper-pagination-color: #ccd5ae;
+  --swiper-pagination-bullet-opacity: 1;
+}
+
+.swiper-pagination-bullet{
+  --swiper-pagination-bullet-inactive-opacity: .2;
+}
+
+/////////////////////////////////////////////////////
+// Progressbar styling allg.
+/////////////////////////////////////////////////////
+.progress, .progress-stacked {
+  --bs-progress-bar-bg: #cdb4db;
+}
+
+/////////////////////////////////////////////////////
+//Carousel Buttons links rechts
+/////////////////////////////////////////////////////
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+  filter: invert(100%);
+}
+
+/////////////////////////////////////////////////////
+//Language Button Stylen
+/////////////////////////////////////////////////////
+.btn-sm{
+  background-color: lightgray;
+  opacity: 0.6;
+  --bs-btn-font-size: 0.600rem;
+  border: 0.5px solid grey;
+}
+
+a.btn.btn-sm:hover{
+  background-color: dimgrey;
+  opacity: 0.6;
+  --bs-btn-font-size: 0.600rem;
+  border: 0.5px solid grey;
+}
+
+/////////////////////////////////////////////////////
+//footer english
+/////////////////////////////////////////////////////
+.footer-meta1 a.footer-link{
+  font-size: smaller;
+  color: darkgrey !important;
+}
+
+
+/////////////////////////////////////////////////////
+//Abweichung von Prototyp, da Donwloadbutton sonst zu weit weg
+////donwload Icon booklist
+//li.filelink-item {
+//  display: flex;
+//  justify-content: flex-end;
+//}
+
+///////////////////////////////////////////////////////
+// andere scss files einbinden
+///////////////////////////////////////////////////////
+@import "accordion/accordion";
+
+@import "slideshow/slideshow";
+
+@import "carousel/carousel";
+
+@import "subheader/subheader";
+
+@import "containerBooks/containerbooks";
+
+@import "progressbar/progressbar";
+
+

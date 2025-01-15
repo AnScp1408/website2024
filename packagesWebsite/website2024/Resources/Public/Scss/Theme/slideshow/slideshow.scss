@@ -1,0 +1,101 @@
+/* Styling für die Pagination Bullets außerhalb der Bilder */
+.swiper-container {
+  position: relative;
+  width: 80%; /* Setzt die Breite auf 80% der übergeordneten Containergröße */
+  max-width: 500px; /* Maximalbreite auf 600px beschränken */
+  margin: 0 auto; /* Zentriert den Swiper auf der Seite */
+}
+
+.swiper {
+  width: 100%; /* Weitet sich auf die Breite der .swiper-container aus */
+  height: auto; /* Höhe wird automatisch an das Bild angepasst */
+}
+
+
+@media (orientation: portrait) {
+  .swiper-container {
+    max-width: 400px; /* Wenn im Hochformat, max. Breite auf 400px begrenzen */
+  }
+}
+
+@media (max-width: 768px) {
+  .swiper-container {
+    max-width: 100%; /* Auf kleinen Bildschirmen (z. B. Smartphones) die Breite auf 100% setzen */
+  }
+}
+
+/* Versteckt den Swiper bei sehr kleinen Bildschirmen */
+@media (max-width: 580px) {
+  .swiper-container {
+    display: none; /* Versteckt den gesamten Swiper */
+  }
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: -30px; /* Verschiebt die Bullets nach unten (außerhalb der Bilder) */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+.swiper-pagination-bullet {
+  background-color: #000; /* Schwarze Farbe für die Bullets */
+  width: 12px; /* Größe der Bullets */
+  height: 12px;
+  margin: 0 5px;
+  border-radius: 50%;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1; /* Aktive Bullet vollständig sichtbar */
+}
+
+/* Styling für die Navigation Pfeile außerhalb der Bilder und schwarz */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000; /* Schwarze Farbe für Pfeile */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background-color: transparent; /* Optional, um Hintergrund transparent zu machen */
+}
+
+.swiper-button-next {
+  right: 10px; /* Position des "next" Buttons rechts */
+}
+
+.swiper-button-prev {
+  left: 10px; /* Position des "prev" Buttons links */
+}
+
+/* Optional: Hover-Effekt für die Pfeile */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #333; /* Etwas hellere Farbe bei Hover */
+}
+
+.swiper {
+  width: 100%;
+  height: auto;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 60%;
+  height: auto;
+  object-fit: cover;
+}

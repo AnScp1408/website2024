@@ -1,0 +1,29 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:bk2k="http://typo3.org/ns/BK2K/BootstrapPackage/ViewHelpers" xmlns: data-namespace-typo3-fluid="true">
+<f:if condition="{mainnavigation}">
+    <ul class="navbar-nav">
+        <f:for each="{mainnavigation}" as="item">
+            <f:if condition="{item.spacer}">
+                <f:then>
+                    <li class="nav-spacer" aria-hidden="true"></li>
+                </f:then>
+                <f:else>
+                    <li class="nav-item">
+                        <a id="nav-item-{item.data.uid}" href="{item.link}"
+                           class="nav-link nav-link-main{f:if(condition: item.active, then:' active')}">
+                            <span class="nav-link-text">
+                                {item.title}
+                                <f:if condition="{item.current}">
+                                    <span class="visually-hidden">({f:translate(key: 'navigation.link.screenreader.current', extensionName: 'bootstrap_package')})</span>
+                                </f:if>
+                            </span>
+                        </a>
+                    </li>
+                </f:else>
+            </f:if>
+        </f:for>
+    </ul>
+</f:if>
+
+
+</html>

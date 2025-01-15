@@ -1,0 +1,44 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{theme.meta.enable} || {theme.language.enable} || {theme.copyright.enable} || {theme.socialmedia.enable} || {theme.footernavigation.enable} || {theme.contact.enable}">
+    <section class="section footer-section footer-section-meta" style="background-color: #bde0fe; color: #000000; padding: 20px 0;">
+        <div class="frame frame-background-none frame-space-before-none frame-space-after-none">
+            <div class="frame-group-container">
+                <div class="frame-group-inner">
+                    <div class="frame-container frame-container-default">
+                        <div class="frame-inner">
+                            <!-- Footer Kontaktinformationen -->
+                            <div class="footer-contact-info text-center" style="color: #000;">
+                                <p>Edu&Act GmbH | Straße 132 | 2983 Stadt | +43660 8273891 | edu.act@gmail.com</p>
+                            </div>
+
+                            <!-- Impressum, Datenschutzerklärung, AGBs -->
+                            <div class="footer-meta text-center" style="color: #000;">
+                                <a href="http://website.s2310456018.student.kwmhgb.at/impressum#" class="footer-link" style="color: #000; margin: 0 15px;">Impressum </a> |
+                                <a href="http://website.s2310456018.student.kwmhgb.at/datenschutzerklaerung" class="footer-link" style="color: #000; margin: 0 15px;">Datenschutzerklärung</a> |
+                                <a href="http://website.s2310456018.student.kwmhgb.at/agbs" class="footer-link" style="color: #000; margin: 0 15px;">AGBs</a>
+                            </div>
+<!--                            rein theoretisch English Version, Versuch mit Translation Key-->
+<!--                            <div class="footer-meta1 text-center">-->
+<!--                                <a href="{<f:translate key="impressHref" extensionName="website2024"/>}" class="footer-link" style="color: #000; margin: 0 15px;"><f:translate key="imprint" extensionName="website2024"/></a> |-->
+<!--                                <a href="http://website.s2310456018.student.kwmhgb.at/en/privacy-policy" class="footer-link" style="color: #000; margin: 0 15px;">Explanation of Information Obligations</a> |-->
+<!--                                <a href="http://website.s2310456018.student.kwmhgb.at/en/terms-and-conditions" class="footer-link" style="color: #000; margin: 0 15px;">Terms and Conditions</a>-->
+<!--                            </div>-->
+
+
+                            <!-- Social Media Links mit Icon und Verlinkung-->
+                            <div class="footer-sociallinks text-center" style="margin-top: 10px; color: black">
+                                <a href="https://www.facebook.com" target="_blank" class="footer-social-icon" style="margin: 0 15px;">
+                                    <img src="https://img.icons8.com/ios/50/facebook-new.png" alt="Facebook" style="width: 39px; height: 39px; border-radius: 50%;"/>
+                                </a>
+                                <a href="https://www.instagram.com" target="_blank" class="footer-social-icon" style="margin: 0 15px;">
+                                    <img src="https://img.icons8.com/ios/50/1A1A1A/instagram-new--v1.png" alt="Instagram" style="width: 39px; height: 39px; border-radius: 50%;"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</f:if>
+</html>

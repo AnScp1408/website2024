@@ -1,0 +1,16 @@
+.progress {
+  height: 20px;
+  background-color: #f0f0f0; /* Grauer Hintergrund für den leeren Bereich */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  //color: #cdb4db; /* Farbcode für den Fortschritt (Lila) */
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out; /* Sanfte Animation für die Veränderung der Breite */
+}
+.progress, .progress-stacked {
+  --bs-progress-bar-bg: #cdb4db;
+}

@@ -1,0 +1,133 @@
+<!--<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">-->
+<!--<div class="form-container form-identifier-{form.formDefinition.identifier}">-->
+<!--    &lt;!&ndash; Progressbar &ndash;&gt;-->
+<!--    <div class="position-relative m-4">-->
+<!--        <div class="progress" role="progressbar" aria-label="Progress" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="height: 5px;">-->
+<!--            <div class="progress-bar" style="width: 33%"></div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; Step buttons (positions absolute) &ndash;&gt;-->
+<!--        <button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 2rem; height: 2rem;">1</button>-->
+<!--        <button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-secondary rounded-pill" style="width: 2rem; height: 2rem;">2</button>-->
+<!--        <button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill" style="width: 2rem; height: 2rem;">3</button>-->
+<!--    </div>-->
+<!--<h1>Hallo11</h1>-->
+<!--    &lt;!&ndash; Form &ndash;&gt;-->
+<!--    <formvh:renderRenderable renderable="{form}">-->
+<!--        <formvh:form-->
+<!--            object="{form}"-->
+<!--            action="{form.renderingOptions.controllerAction}"-->
+<!--            method="{form.renderingOptions.httpMethod}"-->
+<!--            id="{form.identifier}"-->
+<!--            section="{form.identifier}"-->
+<!--            enctype="{form.renderingOptions.httpEnctype}"-->
+<!--            addQueryString="{form.renderingOptions.addQueryString}"-->
+<!--            argumentsToBeExcludedFromQueryString="{form.renderingOptions.argumentsToBeExcludedFromQueryString}"-->
+<!--            additionalParams="{form.renderingOptions.additionalParams}"-->
+<!--            novalidate="1"-->
+<!--            data-current-step="1" &lt;!&ndash; Custom attribute to track current step &ndash;&gt;-->
+<!--        >-->
+<!--        &lt;!&ndash; Step 1 &ndash;&gt;-->
+<!--        <f:if condition="{form.currentStep == 1}">-->
+<!--            <h1>Hallo</h1>-->
+<!--            <div class="step-1">-->
+<!--                <f:render partial="Form/Step1" arguments="{form: form}" />-->
+<!--            </div>-->
+<!--        </f:if>-->
+
+<!--        &lt;!&ndash; Step 2 &ndash;&gt;-->
+<!--        <f:if condition="{form.currentStep == 2}">-->
+<!--            <div class="step-2">-->
+<!--                <f:render partial="Form/Step2" arguments="{form: form}" />-->
+<!--            </div>-->
+<!--        </f:if>-->
+
+<!--        &lt;!&ndash; Step 3 &ndash;&gt;-->
+<!--        <f:if condition="{form.currentStep == 3}">-->
+<!--            <div class="step-3">-->
+<!--                <f:render partial="Form/Step3" arguments="{form: form}" />-->
+<!--            </div>-->
+<!--        </f:if>-->
+
+<!--        &lt;!&ndash; Navigation Buttons (Previous, Next) &ndash;&gt;-->
+<!--        <div class="form-actions">-->
+<!--            <f:render partial="Form/Navigation" arguments="{form: form}" />-->
+<!--        </div>-->
+<!--        </formvh:form>-->
+<!--    </formvh:renderRenderable>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--    document.addEventListener("DOMContentLoaded", function () {-->
+<!--        const form = document.querySelector('formvh\\:form'); // Das Formular-->
+<!--        const progressBar = document.querySelector('.progress-bar');-->
+<!--        const stepButtons = document.querySelectorAll('.btn'); // Alle Schritt-Buttons-->
+<!--        const currentStep = form.getAttribute('data-current-step'); // Aktuellen Schritt herausfinden-->
+
+<!--        function updateProgress(step) {-->
+<!--            const stepPercent = (step / 3) * 100; // Drei Schritte, also 33% pro Schritt-->
+<!--            progressBar.style.width = `${stepPercent}%`;-->
+
+<!--            // Schritt-Buttons aktualisieren-->
+<!--            stepButtons.forEach((button, index) => {-->
+<!--                if (index < step) {-->
+<!--                    button.classList.remove('btn-secondary');-->
+<!--                    button.classList.add('btn-primary');-->
+<!--                } else {-->
+<!--                    button.classList.remove('btn-primary');-->
+<!--                    button.classList.add('btn-secondary');-->
+<!--                }-->
+<!--            });-->
+<!--        }-->
+
+<!--        // Initialisierung des Fortschritts (basierend auf dem aktuellen Schritt)-->
+<!--        updateProgress(currentStep);-->
+
+<!--        // Event-Listener für die Navigation (Weiter/Zurück)-->
+<!--        const nextButton = document.querySelector('.form-actions .next'); // Button für "Weiter"-->
+<!--        const prevButton = document.querySelector('.form-actions .prev'); // Button für "Zurück"-->
+
+<!--        nextButton.addEventListener('click', function () {-->
+<!--            let step = parseInt(form.getAttribute('data-current-step')) + 1;-->
+<!--            if (step <= 3) {-->
+<!--                form.setAttribute('data-current-step', step);-->
+<!--                updateProgress(step);-->
+<!--            }-->
+<!--        });-->
+
+<!--        prevButton.addEventListener('click', function () {-->
+<!--            let step = parseInt(form.getAttribute('data-current-step')) - 1;-->
+<!--            if (step >= 1) {-->
+<!--                form.setAttribute('data-current-step', step);-->
+<!--                updateProgress(step);-->
+<!--            }-->
+<!--        });-->
+<!--    });-->
+
+<!--</script>-->
+
+<!--</html>-->
+
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="form-container form-identifier-{form.formDefinition.identifier}">
+    <h1>Hallo</h1>
+    <formvh:renderRenderable renderable="{form}">
+        <formvh:form
+            object="{form}"
+            action="{form.renderingOptions.controllerAction}"
+            method="{form.renderingOptions.httpMethod}"
+            id="{form.identifier}"
+            section="{form.identifier}"
+            enctype="{form.renderingOptions.httpEnctype}"
+            addQueryString="{form.renderingOptions.addQueryString}"
+            argumentsToBeExcludedFromQueryString="{form.renderingOptions.argumentsToBeExcludedFromQueryString}"
+            additionalParams="{form.renderingOptions.additionalParams}"
+            novalidate="1"
+        >
+            <f:render partial="{form.currentPage.templateName}" arguments="{page: form.currentPage}" />
+            <div class="form-actions">
+                <f:render partial="Form/Navigation" arguments="{form: form}" />
+            </div>
+        </formvh:form>
+    </formvh:renderRenderable>
+</div>
+</html>

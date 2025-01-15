@@ -1,0 +1,141 @@
+######################
+#### DEPENDENCIES ####
+######################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/constants.typoscript">
+
+
+############
+### PAGE ###
+############
+page {
+    logo {
+        file = EXT:website2024/Resources/Public/Images/logo.svg
+        fileInverted = EXT:website2024/Resources/Public/Images/logo-inverted.svg
+        height = 52
+        width = 192
+        alt = website2024
+        linktitle = website2024
+    }
+
+    favicon {
+        file = EXT:website2024/Resources/Public/Icons/favicon.ico
+    }
+
+    fluidtemplate {
+        layoutRootPath = EXT:website2024/Resources/Private/Layouts/Page/
+        partialRootPath = EXT:website2024/Resources/Private/Partials/Page/
+        templateRootPath = EXT:website2024/Resources/Private/Templates/Page/
+    }
+
+    10 = FLUIDTEMPLATE
+    10.variables {
+        # Hauptnavigation
+        mainnavigation = HMENU
+        mainnavigation {
+            1 = TMENU
+            1.NO {
+                linkWrap = <span>|</span>
+            }
+        }
+
+        # Subnavigation (zeigt nur Unterkapitel der aktuellen Seite an)
+        subnavigation = HMENU
+        subnavigation {
+            special = directory
+            special.value = {TSFE:page|uid} # Lädt Unterkapitel der aktuellen Seite
+            1 = TMENU
+            1.NO {
+                allWrap = <li class="nav-item"><a class="nav-link" href="|">|</a></li>
+                ATagTitle.field = title
+            }
+        }
+    }
+}
+
+##################
+### EXTENSIONS ###
+##################
+plugin.bootstrap_package {
+    view {
+        layoutRootPath = EXT:website2024/Resources/Private/Layouts/
+        partialRootPath = EXT:website2024/Resources/Private/Partials/
+        templateRootPath = EXT:website2024/Resources/Private/Templates/
+    }
+}
+
+#plugin.website2024.settings.accordionCssPath = EXT:website2024/Resources/Public/Scss/Theme/accordion/_accordion.scss
+
+########################
+### CONTENT ELEMENTS ###
+########################
+
+plugin.bootstrap_package_contentelements {
+    view {
+        layoutRootPath = EXT:website2024/Resources/Private/Layouts/ContentElements/
+        partialRootPath = EXT:website2024/Resources/Private/Partials/ContentElements/
+        templateRootPath = EXT:website2024/Resources/Private/Templates/ContentElements/
+    }
+}
+
+
+################################
+### BOOTSTRAP SCSS CONSTANTS ###
+################################
+plugin.bootstrap_package.settings.scss {
+    primary = #eb3e4a
+    secondary = #013859
+}
+
+
+################################
+########## FE LOGIN ############
+################################
+
+plugin {
+    tx_felogin_login {
+        view {
+            templateRootPath = EXT:website2024/Resources/Private/Templates/LoginExtension/
+            partialRootPath = EXT:website2024/Resources/Private/Templates/LoginExtension/
+            layoutRootPath = EXT:website2024/Resources/Private/Templates/LoginExtension/
+        }
+    }
+}
+
+################################
+########## FEMANAGER ###########
+################################
+
+plugin.tx_femanager {
+    view {
+        templateRootPath = EXT:website2024/Resources/Private/Templates/
+        partialRootPath = EXT:website2024/Resources/Private/Partials/
+        layoutRootPath = EXT:website2024/Resources/Private/Layouts/
+    }
+
+    persistence {
+        #Default storage PID
+        storagePid = 24
+    }
+}
+
+
+##################
+###### News ######
+##################
+
+plugin {
+    tx_news {
+        view {
+            twb5 {
+                layoutRootPath = EXT:website2024/Resources/Private/Layouts/News
+                partialRootPath = EXT:website2024/Resources/Private/Partials/News
+                templateRootPath = EXT:website2024/Resources/Private/Templates/News
+            }
+        }
+        settings {
+            orderByAllowed = crdate, title
+        }
+    }
+}
+
+

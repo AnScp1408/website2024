@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2024-12-03UTC18:42:070">
+        <header>
+            <authorName>Anna Scheuchenpflug</authorName>
+            <authorEmail>scheuchenpflug.anna@gmail.com</authorEmail>
+        </header>
+        <body>
+<!--  News Translate -->
+        			<trans-unit id="more-link" xml:space="preserve">
+        				<source>Read more</source>
+        			</trans-unit>
+
+                    <trans-unit id="button.close" xml:space="preserve">
+                        <source>Close</source>
+                    </trans-unit>
+
+        			<trans-unit id="newest" xml:space="preserve">
+                        <source>Newest first</source>
+        			</trans-unit>
+
+                    <trans-unit id="oldest" xml:space="preserve">
+                        <source>Oldest first</source>
+                    </trans-unit>
+<!--  Versuch, Footer mit translate Key zu ändern -->
+<!--                     <trans-unit id="impressHref" xml:space="preserve"> -->
+<!--                         <source>http://website.s2310456018.student.kwmhgb.at/en/imprint</source> -->
+<!--                     </trans-unit> -->
+
+<!--         			<trans-unit id="imprint" xml:space="preserve"> -->
+<!--                         <source>Imprint</source> -->
+<!--         			</trans-unit> -->
+
+
+        </body>
+    </file>
+</xliff>

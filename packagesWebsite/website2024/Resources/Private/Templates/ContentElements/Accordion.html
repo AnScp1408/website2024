@@ -1,0 +1,71 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+    <f:if condition="{records}">
+        <f:variable name="activeElement" value="{data.pi_flexform.default_element}" />
+        <f:variable name="currentVariants" value="{variants}" />
+        <div class="accordion" id="accordion-{data.uid}">
+            <f:for each="{records}" as="record" iteration="iteration">
+                <!-- Dynamische Klassen für Farben basierend auf Iteration bei Body und Header-->
+                <f:variable name="colorClass">
+                    <f:if condition="{iteration.index} == 0 || {iteration.index} % 4 == 0">
+                        <f:then>bg-blue</f:then>
+                    </f:if>
+                    <f:if condition="{iteration.index} == 1 || {iteration.index} % 4 == 1">
+                        <f:then>bg-yellow</f:then>
+                    </f:if>
+                    <f:if condition="{iteration.index} == 2 || {iteration.index} % 4 == 2">
+                        <f:then>bg-green</f:then>
+                    </f:if>
+                    <f:if condition="{iteration.index} == 3 || {iteration.index} % 4 == 3">
+                        <f:then>bg-purple</f:then>
+                    </f:if>
+                </f:variable>
+
+                <!-- Accordion Item mit dynamischer Hintergrundfarbe -->
+                <div class="accordion-item {colorClass}">
+                    <h{data.subitems_header_layout} class="accordion-header {colorClass}" id="accordion-heading-{data.uid}-{record.data.uid}">
+                    <button
+                        class="accordion-button {f:if(condition: '{activeElement} == {record.data.uid}', then: '', else: 'collapsed')} {colorClass}"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#accordion-{data.uid}-{record.data.uid}"
+                        data-bs-parent="#accordion-{data.uid}"
+                        aria-expanded="{f:if(condition: '{activeElement} == {record.data.uid}', then: 'true', else: 'false')}"
+                        aria-controls="accordion-{data.uid}-{record.data.uid}"
+                    >
+                        {record.data.header}
+                    </button>
+                    </h{data.subitems_header_layout}>
+
+                    <!-- Accordion Collapse Body -->
+                    <div
+                        id="accordion-{data.uid}-{record.data.uid}"
+                        class="accordion-collapse collapse {f:if(condition: '{activeElement} == {record.data.uid}', then: 'show')}"
+                        aria-labelledby="accordion-heading-{data.uid}-{record.data.uid}"
+                        data-bs-parent="#accordion-{data.uid}"
+                    >
+                        <div class="accordion-body {colorClass}">
+                            <div class="accordion-content accordion-content-{record.data.mediaorient}">
+                                <f:if condition="{record.files}">
+                                    <div class="accordion-content-item accordion-content-media">
+                                        <f:variable name="imageConfig">{settings.responsiveimages.contentelements.accordion.{record.data.mediaorient}}</f:variable>
+                                        <bk2k:data.imageVariants as="variants" variants="{currentVariants}" multiplier="{imageConfig.multiplier}" gutters="{imageConfig.gutters}" corrections="{imageConfig.corrections}" />
+                                        <f:render partial="Media/Gallery" arguments="{files: record.files, data: record.data, settings: settings, variants: variants}" />
+                                    </div>
+                                </f:if>
+                                <div class="accordion-content-item accordion-content-text">
+                                    <f:format.html>{record.data.bodytext}</f:format.html>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </f:for>
+        </div>
+    </f:if>
+
+</f:section>
+
+</html>
